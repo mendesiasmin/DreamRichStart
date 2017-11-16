@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  db:
+    image: postgres
+    container_name: dreamrich_db
+
+  api:
+    build: DreamRich/.
+    container_name: dreamrich_api
+    entrypoint: /entrypoint.sh
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  front:
+    build: DreamRichJS/.
+    entrypoint: /entrypoint.sh
+    container_name: dreamrich_front
+    command: npm start
+    volumes:
+      - ./DreamRichJS:/front
+    ports:
+      - "8001:3000"
+    depends_on:
+      - api
+
+
