@@ -1,28 +1,29 @@
-#!/bin/sh
+!/bin/sh
 
-#git clone git@github.com:mendesiasmin/DreamRich.git
-#git clone git@github.com:mendesiasmin/DreamRichJS.git
-#
-#git clone git@github.com:DreamRich/DreamRich.git
-#git clone git@github.com:DreamRich/DreamRichJS.git
-#
+git clone git@github.com:mendesiasmin/DreamRich.git
+git clone git@github.com:mendesiasmin/DreamRichJS.git
+
+git clone git@github.com:DreamRich/DreamRich.git
+git clone git@github.com:DreamRich/DreamRichJS.git
+
 cd DreamRich/
 git checkout devel
 git pull --rebase dreamrich devel
-#git remote add dreamrich git@github.com:DreamRich/DreamRich.git
+git remote add dreamrich git@github.com:DreamRich/DreamRich.git
 
 cd ../DreamRichJS
 git checkout devel
 git pull --rebase dreamrich devel
-#git remote add dreamrichJS git@github.com:DreamRich/DreamRichJS.git
-#
+git remote add dreamrichJS git@github.com:DreamRich/DreamRichJS.git
+
 cd ..
 
 cp docker/Dockerfile.api DreamRich/Dockerfile
 cp docker/entrypoint.sh.api DreamRich/entrypoint.sh
+
 cp docker/Dockerfile.js DreamRichJS/Dockerfile
 cp docker/entrypoint.sh.js DreamRichJS/entrypoint.sh
-#cp docker/.dockerignore DreamRichJS/.dockerignore
+cp docker/.dockerignore DreamRichJS/.dockerignore
 
 docker-compose build
 docker-compose up
