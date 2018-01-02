@@ -9,7 +9,6 @@ services:
   api:
     build: DreamRich/.
     container_name: dreamrich_api
-    entrypoint: /entrypoint.sh
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       -  ./DreamRich:/api
@@ -20,7 +19,6 @@ services:
 
   front:
     build: DreamRichJS/.
-    entrypoint: /entrypoint.sh
     container_name: dreamrich_front
     command: npm start
     volumes:
