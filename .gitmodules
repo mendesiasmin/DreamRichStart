@@ -1,0 +1,6 @@
+[submodule "DreamRichJS"]
+	path = DreamRichJS
+	url = https://gitlab.com/DreamRich/DreamRichJS.git
+[submodule "DreamRich"]
+	path = DreamRich
+	url = https://gitlab.com/DreamRich/DreamRich.git
